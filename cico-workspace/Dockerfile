@@ -1,4 +1,4 @@
-FROM quay.io/openshift/origin-jenkins-agent-base:4.0
+FROM quay.io/openshift/origin-jenkins-agent-base:v4.0
 
 MAINTAINER Brian Stinson <brian@bstinson.com>
 
