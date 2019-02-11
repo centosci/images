@@ -21,6 +21,7 @@ items:
           source:
               git:
                   uri: "https://github.com/centosci/images"
+                  contextDir: "cico-workspace"
           strategy:
               dockerStrategy:
                   noCache: true
