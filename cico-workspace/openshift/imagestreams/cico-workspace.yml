@@ -3,7 +3,7 @@ apiVersion: "v1"
 metadata:
     name: "cico-workspace"
 spec:
-    runPolicy: "serial"
+    runPolicy: "Serial"
     triggers:
         - type: "ImageChange"
     source:
