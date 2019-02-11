@@ -1,0 +1,22 @@
+kind: "BuildConfig"
+apiVersion: "v1"
+metadata:
+    name: "cico-workspace"
+spec:
+    runPolicy: "serial"
+    triggers:
+        - type: "ImageChange"
+    source:
+        git:
+            uri: "https://github.com/centosci/images"
+    strategy:
+        dockerStrategy:
+            noCache: true
+            dockerfilePath: "cico-workspace/Dockerfile"
+    output:
+        to:
+            kind: "ImageStreamTag"
+            name: "cico-workspace:latest"
+        imageLabels:
+            - name: "role"
+              value: "jenkins-slave"
