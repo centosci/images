@@ -4,8 +4,9 @@ items:
     - kind: "ImageStream"
       apiVersion: "v1"
       metadata:
-          name: "cico-workspace"
-          namespace: "default"
+          name: cico-workspace
+          labels:
+              role: jenkins-slave
       spec:
           lookupPolicy:
               local: true
@@ -14,22 +15,21 @@ items:
       apiVersion: "v1"
       metadata:
           name: "cico-workspace"
+          labels:
+              role: jenkins-slave
       spec:
-          runPolicy: "Serial"
+          runPolicy: "SerialLatestOnly"
           triggers:
               - type: "ImageChange"
           source:
+              type: git
               git:
                   uri: "https://github.com/centosci/images"
-                  contextDir: "cico-workspace"
+              contextDir: "cico-workspace"
           strategy:
               dockerStrategy:
                   noCache: true
-                  dockerfilePath: "cico-workspace/Dockerfile"
           output:
               to:
                   kind: "ImageStreamTag"
                   name: "cico-workspace:latest"
-              imageLabels:
-                  - name: "role"
-                    value: "jenkins-slave"
