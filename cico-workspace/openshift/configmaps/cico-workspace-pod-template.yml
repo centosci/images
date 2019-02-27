@@ -1,0 +1,73 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    role: jenkins-slave
+  name: cico-workspace
+data:
+  cico-workspace: |-
+    <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+        <inheritFrom></inheritFrom>
+        <name>cico-workspace</name>
+        <namespace></namespace>
+        <privileged>false</privileged>
+        <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
+        <alwaysPullImage>true</alwaysPullImage>
+        <instanceCap>2147483647</instanceCap>
+        <slaveConnectTimeout>100</slaveConnectTimeout>
+        <idleMinutes>0</idleMinutes>
+        <activeDeadlineSeconds>0</activeDeadlineSeconds>
+        <label>cico-workspace</label>
+        <serviceAccount>jenkins</serviceAccount>
+        <nodeSelector></nodeSelector>
+        <nodeUsageMode>NORMAL</nodeUsageMode>
+        <customWorkspaceVolumeEnabled>false</customWorkspaceVolumeEnabled>
+        <workspaceVolume class="org.csanchez.jenkins.plugins.kubernetes.volumes.workspace.EmptyDirWorkspaceVolume">
+          <memory>false</memory>
+        </workspaceVolume>
+        <volumes>
+          <org.csanchez.jenkins.plugins.kubernetes.volumes.SecretVolume>
+            <mountPath>/duffy-ssh-key/</mountPath>
+            <secretName>duffy-ssh-key</secretName>
+          </org.csanchez.jenkins.plugins.kubernetes.volumes.SecretVolume>
+        </volumes>
+        <containers>
+          <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+            <name>jnlp</name>
+            <image>172.30.254.79:5000/openshift/cico-workspace</image>
+            <privileged>false</privileged>
+            <alwaysPullImage>true</alwaysPullImage>
+            <workingDir>/tmp</workingDir>
+            <command></command>
+            <args>${computer.jnlpmac} ${computer.name}</args>
+            <ttyEnabled>false</ttyEnabled>
+            <resourceRequestCpu></resourceRequestCpu>
+            <resourceRequestMemory></resourceRequestMemory>
+            <resourceLimitCpu></resourceLimitCpu>
+            <resourceLimitMemory></resourceLimitMemory>
+            <envVars/>
+            <ports/>
+            <livenessProbe>
+              <execArgs></execArgs>
+              <timeoutSeconds>0</timeoutSeconds>
+              <initialDelaySeconds>0</initialDelaySeconds>
+              <failureThreshold>0</failureThreshold>
+              <periodSeconds>0</periodSeconds>
+              <successThreshold>0</successThreshold>
+            </livenessProbe>
+          </org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+        </containers>
+        <envVars>
+          <org.csanchez.jenkins.plugins.kubernetes.model.SecretEnvVar>
+            <key>CICO_API_KEY</key>
+            <secretName>duffy-api-key</secretName>
+            <secretKey>key</secretKey>
+          </org.csanchez.jenkins.plugins.kubernetes.model.SecretEnvVar>
+        </envVars>
+        <annotations/>
+        <imagePullSecrets/>
+        <nodeProperties/>
+        <yaml></yaml>
+        <podRetention class="org.csanchez.jenkins.plugins.kubernetes.pod.retention.Default"/>
+      </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
