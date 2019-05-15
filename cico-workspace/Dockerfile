@@ -1,4 +1,4 @@
-FROM quay.io/openshift/origin-jenkins-agent-base:v4.0
+FROM docker.io/openshift/jenkins-slave-base-centos7:v3.11
 
 MAINTAINER Brian Stinson <brian@bstinson.com>
 
