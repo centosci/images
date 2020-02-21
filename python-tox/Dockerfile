@@ -1,4 +1,4 @@
-FROM fedora:rawhide
+FROM fedora:30
 
 LABEL maintainer "Brian Stinson <brian@bstinson.com>"
 
