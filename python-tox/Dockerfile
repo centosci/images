@@ -1,8 +1,10 @@
-FROM fedora:rawhide
+FROM centos:7
 
 LABEL maintainer "Brian Stinson <brian@bstinson.com>"
 
-RUN dnf -y install python3-tox krb5-devel popt-devel python3-devel rpm-devel @c-development git poetry
+RUN yum -y install epel-release
+RUN yum -y install python3 python-tox krb5-devel popt-devel python3-devel rpm-devel git
+RUN pip3 install poetry
 
 RUN chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
