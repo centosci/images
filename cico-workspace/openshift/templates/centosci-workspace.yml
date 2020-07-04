@@ -2,7 +2,7 @@ apiVersion: template.openshift.io/v1
 kind: Template
 labels:
   app: cico-workspace
-  template: cico-workspace-template 
+  template: cico-workspace-template
 message: A Jenkins service has been created in your project.
 metadata:
   annotations:
@@ -277,7 +277,7 @@ parameters:
 - description: Maximum amount of memory the container can use.
   displayName: Memory Limit
   name: MEMORY_LIMIT
-  value: 512Mi
+  value: 1024Mi
 - description: Volume space available for data, e.g. 512Mi, 2Gi.
   displayName: Volume Capacity
   name: VOLUME_CAPACITY
