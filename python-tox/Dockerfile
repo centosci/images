@@ -1,4 +1,4 @@
-FROM fedora:33
+FROM fedora:34
 
 LABEL maintainer "Brian Stinson <brian@bstinson.com>, Vipul Siddharth <siddharthvipul@protonmail.com"
 
