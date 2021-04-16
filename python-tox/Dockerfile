@@ -1,6 +1,6 @@
 FROM centos:7
 
-LABEL maintainer "Brian Stinson <brian@bstinson.com>"
+LABEL maintainer "Brian Stinson <brian@bstinson.com>, Vipul Siddharth <siddharthvipul@protonmail.com>"
 
 RUN yum -y install epel-release
 RUN yum -y install python3 python-tox krb5-devel popt-devel python3-devel rpm-devel git
