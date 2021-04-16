@@ -1,4 +1,4 @@
-FROM fedora:33
+FROM quay.io/fedora/fedora:33-x86_64
 
 LABEL maintainer "Brian Stinson <brian@bstinson.com>, Vipul Siddharth <siddharthvipul@protonmail.com"
 
