@@ -1,6 +1,6 @@
-FROM fedora:33
+FROM fedora:35
 
-LABEL maintainer "Brian Stinson <brian@bstinson.com>"
+LABEL maintainer "Brian Stinson <brian@bstinson.com>, Vipul Siddharth <siddharthvipul@protonmail.com"
 
 RUN dnf -y install python3-tox krb5-devel popt-devel python3-devel rpm-devel @c-development git poetry openssl-devel libcurl-devel openldap-devel npm libffi-devel rpm-build
 
