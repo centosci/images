@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:8
 
 LABEL maintainer "Brian Stinson <brian@bstinson.com>, Vipul Siddharth <siddharthvipul@protonmail.com>"
 
