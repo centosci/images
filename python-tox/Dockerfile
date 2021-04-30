@@ -1,4 +1,4 @@
-FROM centos:8
+FROM quay.io/centos/centos:centos8
 
 LABEL maintainer "Brian Stinson <brian@bstinson.com>, Vipul Siddharth <siddharthvipul@protonmail.com>"
 
