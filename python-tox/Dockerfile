@@ -1,4 +1,4 @@
-FROM centos:7
+FROM quay.io/centos/centos/centos7
 
 LABEL maintainer "Brian Stinson <brian@bstinson.com>"
 
