@@ -1,4 +1,6 @@
-[infrastructure7]
-name=infrastructure7
-baseurl=https://cbs.centos.org/repos/infrastructure7-testing/x86_64/os/
-gpgcheck=0
+[centos-infra]
+name=CentOS Infra Prod repository
+baseurl=http://mirror.centos.org/centos/$releasever/infra/$basearch/infra-common/
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-Infra

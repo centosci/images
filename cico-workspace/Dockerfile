@@ -1,10 +1,14 @@
 FROM docker.io/openshift/jenkins-slave-base-centos7:v3.11
 
-MAINTAINER Brian Stinson <brian@bstinson.com>
+MAINTAINER Fabian Arrotin <arrfab@centos.org>
 
 COPY infrastructure.repo /etc/yum.repos.d/
+COPY RPM-GPG-KEY-CentOS-Infra /etc/pki/rpm-gpg/
 COPY ssh_config /etc/ssh/ssh_config
-RUN yum install -y https://cbs.centos.org/kojifiles/packages/python-cicoclient/0.4.5/1.el7/noarch/python-cicoclient-0.4.5-1.el7.noarch.rpm
+RUN yum update -y && \
+  yum install -y centos-release-ansible-29 && \
+  yum install -y ansible python-cicoclient && \
+  yum clean all
 
 RUN chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
