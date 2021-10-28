@@ -10,7 +10,7 @@ RUN rpm -ivh --nodeps --replacefiles *.rpm && rm *.rpm \
     && rpm -e redhat-release \
     && dnf --setopt=tsflags=nodocs --setopt=install_weak_deps=false -y distro-sync \
     && dnf remove -y subscription-manager dnf-plugin-subscription-manager\
-    && dnf install -y glibc-langpack-en iputils tree \
+    && dnf install -y glibc-langpack-en iputils tree git\
     && dnf clean all
 
 COPY infrastructure.repo /etc/yum.repos.d/
