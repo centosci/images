@@ -17,10 +17,10 @@ COPY infrastructure.repo /etc/yum.repos.d/
 COPY RPM-GPG-KEY-CentOS-Infra /etc/pki/rpm-gpg/
 COPY ssh_config /etc/ssh/ssh_config
 RUN yum update -y && \
-  yum install -y centos-release-ansible-29 && \
-  yum install -y ansible python-cicoclient && \
+  yum install -y python38-pip && \
+  yum install -y ansible-core python-cicoclient && \
   yum clean all
-
+RUN pip3.8 install duffy[client]
 RUN chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
 
